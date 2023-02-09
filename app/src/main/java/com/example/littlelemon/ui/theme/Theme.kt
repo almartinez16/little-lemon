@@ -37,7 +37,7 @@ fun LittleLemonTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compo
 
     MaterialTheme(
         colors = colors,
-        typography = Typography,
+        typography = LittleLemon,
         shapes = Shapes,
         content = content
     )
