@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.littlelemon.R
 import com.example.littlelemon.ui.theme.*
-import com.example.littlelemon.ui.toast
 
 @Composable
 fun Onboarding() {
