@@ -17,11 +17,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.littlelemon.R
+import com.example.littlelemon.data.PrefRepository
 import com.example.littlelemon.ui.theme.*
+import com.example.littlelemon.ui.navigation.*
 
 @Composable
-fun Onboarding() {
+fun Onboarding(navController: NavHostController) {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -31,6 +35,7 @@ fun Onboarding() {
         // Form composable
         OnboardingForm(
             context = LocalContext.current,
+            navController = navController,
             modifier = Modifier.align(Alignment.Start)
         )
     }
@@ -74,8 +79,11 @@ fun OnboardingHeader() {
 @Composable
 fun OnboardingForm(
     context: Context,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavHostController
 ) {
+    val prefRepository = PrefRepository(context)
+
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -169,6 +177,17 @@ fun OnboardingForm(
                 // Validation logic
                if (firstName.isNotBlank() && lastName.isNotBlank() && email.isNotBlank()) {
                    context.toast("Registration successful!")
+                   // Save login information to sharedPreferences
+                   prefRepository.saveUserFirstName(firstName)
+                   prefRepository.saveUserLastName(lastName)
+                   prefRepository.saveUserEmail(email)
+                   prefRepository.saveLoggedIn(true)
+                   // Navigate to Home Screen after successful registration
+                    navController.navigate(Home.route) {
+                        popUpTo(Home.route) {
+                            inclusive = true
+                        }
+                    }
                } else {
                    context.toast("Registration unsuccessful. Please enter all data.")
                    // If any field is empty, is prompted isError
@@ -196,7 +215,7 @@ fun OnboardingPreview() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            Onboarding()
+            Onboarding(navController = rememberNavController())
         }
     }
 }
