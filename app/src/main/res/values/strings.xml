@@ -2,8 +2,9 @@
     <string name="app_name">Little Lemon</string>
     <string name="register_button">Register</string>
     <string name="onboard_get_to_know_you">Let\'s get to know you</string>
-    <string name="onboard_first_name">First name</string>
-    <string name="onboard_last_name">Last name</string>
-    <string name="onboard_email">Email</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
     <string name="onboard_personal_information">Personal information</string>
+    <string name="logout_button">Log out</string>
 </resources>
