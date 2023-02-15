@@ -106,7 +106,7 @@ fun OnboardingForm(
     }
     // First name Text
     Text(
-        text = stringResource(id = R.string.onboard_first_name),
+        text = stringResource(id = R.string.first_name),
         style = LittleLemon.h4,
         modifier = modifier
             .padding(start = 10.dp)
@@ -126,7 +126,7 @@ fun OnboardingForm(
     )
     // Last name Text
     Text(
-        text = stringResource(id = R.string.onboard_last_name),
+        text = stringResource(id = R.string.last_name),
         style = LittleLemon.h4,
         modifier = modifier
             .padding(start = 10.dp, top = 25.dp)
@@ -146,7 +146,7 @@ fun OnboardingForm(
     )
     // Email text
     Text(
-        text = stringResource(id = R.string.onboard_email),
+        text = stringResource(id = R.string.email),
         style = LittleLemon.h4,
         modifier = modifier
             .padding(start = 10.dp, top = 25.dp)
