@@ -50,7 +50,7 @@ fun Profile(navController: NavHostController) {
             Button(
                 onClick = {
                     PrefRepository(context).clearSavedData()
-                    context.toast("S")
+                    context.toast("Logged out")
                     navController.navigate(Onboarding.route) {
                         popUpTo(Onboarding.route) {
                             inclusive = true
