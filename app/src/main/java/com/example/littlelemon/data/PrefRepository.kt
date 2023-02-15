@@ -41,4 +41,8 @@ class PrefRepository(
     fun getUserEmail(): String {
         return pref.getString(PREF_USER_EMAIL, "")!!
     }
+
+    fun clearSavedData() {
+        editor.clear().apply()
+    }
 }
